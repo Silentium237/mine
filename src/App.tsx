@@ -1,6 +1,10 @@
 import * as React from 'react'
 import './App.css'
 
+// @ts-ignore
+import ringer from "./qwert3.mp3";// @ts-ignore
+import smeh from "./smeh.mp3";
+
 const Mine = -1;
 
 function createField(size: number): number[] {
@@ -85,14 +89,15 @@ export default function App() {
         }
     });
 
-    console.log(sum * (-1))
-    console.log(result2)
+
     let screenWidth = window.innerWidth
     let fieldWidth = screenWidth / size
-    let width
+
 
     return (
         <div style={{padding: 10}}>
+            {!death ? <audio src={ringer} autoPlay={true}/> : null}
+
             {dimension.map((_, y) => {
                 return (<div key={y} style={{display: "flex"}}>
                     {dimension.map((_, x) => {
@@ -178,12 +183,18 @@ export default function App() {
                     })}
                 </div>);
             })}
-            {death ? <img style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%"}}
-                          src="https://pa1.narvii.com/6921/5349f2694b8efa5212b0c99a324d622cdb35ac38r1-678-382_hq.gif"/> : null}
+            {death ?
+                <>
+
+                    <img style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%"}}
+                         src="https://pa1.narvii.com/6921/5349f2694b8efa5212b0c99a324d622cdb35ac38r1-678-382_hq.gif"/>
+                    <audio src={smeh} autoPlay={true}/>
+                </>
+                 : null}
             {death || sum * (-1) === result2 ? <button style={{
                 position: "absolute",
                 top: "150px",
