@@ -178,9 +178,12 @@ export default function App() {
                     })}
                 </div>);
             })}
-            {death ? <img style={{display: "flex",
+            {death ? <img style={{
+                display: "flex",
                 justifyContent: "center",
-                alignItems: "center", width: "100%"}} src="https://pa1.narvii.com/6921/5349f2694b8efa5212b0c99a324d622cdb35ac38r1-678-382_hq.gif"/> : null}
+                alignItems: "center",
+                width: "100%"}}
+                          src="https://pa1.narvii.com/6921/5349f2694b8efa5212b0c99a324d622cdb35ac38r1-678-382_hq.gif"/> : null}
             {death || sum * (-1) === result2 ? <button style={{
                 position: "absolute",
                 top: "150px",
@@ -190,10 +193,20 @@ export default function App() {
                 height: 50,
                 borderRadius: "50%"
             }} onClick={()=>window.location.reload()}>Новая игра</button> : null}
-            {!death ? <img style={{display: "flex",
+            {!death && !(sum * (-1) === result2) ? <img style={{
+                display: "flex",
                 justifyContent: "center",
-                alignItems: "center", width: "100%"}} src="https://thumbs.gfycat.com/AggravatingDeficientEstuarinecrocodile-size_restricted.gif"/> : null}
-            {sum * (-1) === result2 ? <>dfkjg;ldfkjsgl</> : null}
+                alignItems: "center",
+                width: "100%"}}
+                           src="https://thumbs.gfycat.com/AggravatingDeficientEstuarinecrocodile-size_restricted.gif"/> : null}
+            {sum * (-1) === result2 ?
+                <img style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%"
+            }}
+                     src="https://c.tenor.com/pDFiSRmPejsAAAAd/paw-patrol.gif"/> : null}
         </div>
     )
 }
